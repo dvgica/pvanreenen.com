@@ -1,3 +1,20 @@
+function initializeApp(pathInfo) {
+  if (pathInfo == "/location") {
+    loadMap();
+    $(window).unload(function() {
+      GUnload();
+    });  
+  }
+  
+  $("a.new-window").unbind("click").click(function() {
+    newWindow = window.open($(this).attr('href'), 'name');
+    if (window.focus) { 
+      newWindow.focus(); 
+    }
+    return false;
+  });
+}
+
 function loadMap() {
   if (GBrowserIsCompatible()) {
     var markerString = "Patricia Van Reenen<br>1096 The Parkway<br>London, Ontario N6A 2X1";
@@ -14,10 +31,4 @@ function loadMap() {
       map.openInfoWindowHtml(myPoint, markerString);
     });
   }
-}
-
-function newWindow(url) {
-  newwindow = window.open(url,'name');
-  if (window.focus) { newwindow.focus() }
-  return false;
 }
