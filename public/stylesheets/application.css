@@ -1,0 +1,199 @@
+/* CSS Document written by David van Geest*/
+
+/* Appearence*/
+body {
+  font-family:Verdana, Arial, Helvetica, sans-serif;
+  background-color:#99CC66;  /*rgb(102,153,51)*/
+  text-align:center;
+  }
+  
+/* Webpage sections*/
+
+#container {
+  width:800px;
+  margin-left:auto;
+  margin-right:auto;
+  text-align:left;
+  }
+  
+#header {
+  position:relative;
+  left:0;
+  top:0;
+  height:150px;
+}
+
+#main {
+  position:relative;
+  left:0;
+  top:0;
+  height:600px;
+  }
+
+#form {
+}
+
+#sitemeter {
+  display:none;
+  }
+  
+/* Main-nav section*/
+#main-nav-back {
+  position:absolute;
+  top:0;
+  left:0;
+  width:160px;
+  background-image:url(../images/main-nav.png);
+  height:100%;
+  }
+  
+#main-nav {
+  position:relative;
+  top:15px;
+  left:5px;
+  width:160px;
+  height:560px;
+  color:#FFFFFF;
+  padding:0px;
+  line-height:50px;
+  }
+  
+#main-nav ul {
+  margin:0;
+  position:relative;
+  top:0px;
+  left:0;
+  list-style-type:none;
+  width:100%;
+  padding:0px;
+  }
+
+#main-nav li {
+  padding-right:25px;
+  text-align:right;
+  }
+
+#main-nav a {
+  color:#FFFFFF;
+  text-decoration:none;
+  font-weight:bold;
+  display:block;
+  }
+    
+#main-nav li.cur,
+#main-nav li:hover {
+  background-image:url(../images/menu-button.png);
+  font-weight:bold;
+  }
+
+/* Main-content section */
+
+#main-content-back {
+  position:relative;
+  top:0;
+  left:160px;
+  width:640px;
+  background-image:url(../images/main-content.png);
+  height:100%;
+  }
+
+#main-content {
+  position:relative;
+  top:10px;
+  left:10px;
+  width:600px;
+  height:560px;
+  padding:10px;
+  overflow:auto;
+  }
+  
+#main-content h1 {
+  font-size:140%;
+  text-decoration:none;
+  color:#000066;
+  }
+  
+#main-content h2 {
+  font-size:115%;
+  font-weight:bold;
+  color:#000066;
+  }
+  
+#main-content h3 {
+  font-size:105%;
+  font-weight:bold;
+  color:#000066;
+}
+
+#main-content h4 {
+  font-size:80%;
+  font-style:italic;
+  color:#000066;
+}
+
+#main-content a {
+  text-decoration:none;
+  color:#0000CC;
+  }
+  
+#main-content a:hover {
+  color:#669933;
+  text-decoration:underline;
+  }
+
+#main-content p
+{
+  text-align: justify;
+  margin-right:20px;
+  margin-left:20px;
+}
+
+.floatRight
+{
+  float: right;
+  position: relative;
+}
+
+#psychToday
+{ position:relative;
+  top:80px;
+  left:14px;
+}
+
+.noborder
+{
+  border:none;
+}
+/* Footer Sections */
+#footer-back {
+  position:relative;
+  left:0;
+  top:0;
+  background-image:url(../images/footer-back.png);
+  height:75px;
+  }
+  
+#footer-content {
+  position:relative;
+  top:10px;
+  left:10px;
+  width:780px;
+  height:55px;
+  text-align:center;
+  color:#FFFFFF;
+  line-height:150%;
+  font-size:80%;
+  }
+  
+#footer-content a {
+  text-decoration:none;
+  color:#FFFFFF;
+  }
+  
+#footer-content a:hover {
+  text-decoration:underline;
+  }
+
+p.extra-spacing {
+  line-height:170%;
+}

@@ -1,0 +1,80 @@
+<!DOCTYPE html PUBLIC "-//W3C//DTD XHTML 1.0 Strict//EN" "http://www.w3.org/TR/xhtml1/DTD/xhtml1-strict.dtd">
+<html xmlns="http://www.w3.org/1999/xhtml">
+
+<head>
+  <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
+  <meta name="keywords" content="counseling, counselor, counselling, counsellor, therapist, therapy, Christian, individual, couple, family, london, ontario, Canada, Patricia Van Reenen, psychoanalysis, psychotherapy" />
+  <meta name="description" content="TODO" />
+  <meta name="verify-v1" content="bOWyNCW8res8xpx05kVSzWbnsBJ0loXoEesjq3GLI9k=" />
+  <meta name="google-site-verification" content="ii2Z3wsYu3Bvhhw3gyDUi2p1gIGByNz-urSRPg6zJb8" />
+
+  <title>TODO - Patricia Van Reenen, M.S.W., R.S.W.</title>
+
+  <link type="text/css" rel="stylesheet" href="/stylesheets/application.css" />
+  <!--[if lte IE 7]>
+  <link type="text/css" rel="stylesheet" href="/stylesheets/application.ie6.css" />
+  <![endif]-->
+
+  <script src="http://maps.google.com/maps?file=api&amp;v=2&amp;key=ABQIAAAA3Zj5ExdYmgYNbS30hThUgBR99OC4ygBB5eL-KNd5jqUbieXmghQLqF0pIj3xR-f5rC6JYOWQAdJZWg" type="text/javascript"></script>
+  <script src="/javascripts/application.js" type="text/javascript"></script>
+</head>
+  <!--
+      if ($pageName == "Location")
+        echo "<body onload=\"load()\" onunload=\"GUnload()\">";
+      else
+        echo "<body>";  
+  -->
+  <body>
+    <div id="container">
+      <div id="header">
+        <img src="images/logo-bl-gr.png" width="800" height="150" alt="Counsellor Patricia Van Reenen, M.S.W., R.S.W." />
+      </div>
+      <div id="main">
+        <div id="main-nav-back">
+          <div id="main-nav">
+            <ul>
+              <%= menu_item('Home', '/', false) %>
+              <%= menu_item('About', '/about', false) %>
+              <%= menu_item('Services', '/services', false) %>
+              <%= menu_item('Fees & Hours', '/fees_hours', false) %>
+              <%= menu_item('Location', '/location', false) %>
+              <%= menu_item('Contact', '/contact', false) %>
+              <%= menu_item('FAQ', '/faq', false) %>
+              <%= menu_item('Resources', '/resources', false) %>
+            </ul>
+            <div id="psychToday">
+              <!--Professional verification provided by therapists.psychologytoday.com --> 
+              <a href="http://therapists.psychologytoday.com/rms/verification.php?profid=58234" onclick="return newWindow('http://therapists.psychologytoday.com/rms/verification.php?profid=58234')" >
+              <img height="33" width="122" src="images/verified_psychtoday.gif" class="noborder" alt="verified by Psychology Today"/></a>
+              <!--End Verification -->
+            </div>
+          </div><!--main-nav-->
+        </div><!--main-nav-back-->
+        <div id="main-content-back">
+          <div id="main-content">
+            <%= yield %>
+          </div><!--main-content-->
+        </div><!--main-content-back-->
+      </div><!--main-->
+      <div id="footer-back">
+        <div id="footer-content">
+          <a href="about_site">About this Site</a> | <a href="privacy">Privacy Policy</a> | <a href="contact_web">Contact the Webmaster</a><br />
+          &copy; <%= Time.now.year %> Patricia Van Reenen<br />
+          <%= "<a href=\"http://validator.w3.org/check?uri=#{request.url}\" onclick=\"return newWindow('http://validator.w3.org/check?uri=#{request.url}')\">" %>
+          <img class="noborder" src="images/button-xhtml.png" alt="Valid XHTML 1.0" /></a>
+          <a href="http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.pvanreenen.com&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;lang=en" onclick="return newWindow('http://jigsaw.w3.org/css-validator/validator?uri=http%3A%2F%2Fwww.pvanreenen.com&amp;profile=css21&amp;usermedium=all&amp;warning=1&amp;lang=en')">
+          <img class="noborder" src="images/button-css.png" alt="Valid CSS 2.1" /></a>
+          <div id="sitemeter">
+            <script type="text/javascript" src="http://s30.sitemeter.com/js/counter.js?site=s30dvangeest">
+            </script>
+            <noscript>
+              <p>
+              <a href="http://s30.sitemeter.com/stats.asp?site=s30dvangeest"><img src="http://s30.sitemeter.com/meter.asp?site=s30dvangeest" alt="Site Meter"/></a>
+              </p>
+            </noscript>
+          </div><!--sitemeter-->
+        </div><!--footer-content-->
+      </div><!--footer-back-->
+    </div><!--containter-->
+  </body>
+</html>

@@ -1,0 +1,12 @@
+# robots.txt for http://www.pvanreenen.com
+
+User-agent: *
+Disallow: /
+Disallow: /images/
+Disallow: /contact.php
+Disallow: /contact_web.php
+Disallow: /missing.php
+Disallow: /forbidden.php
+Disallow: /internal_error.php
+Disallow: /failed_auth.php
+Disallow: /privacy.php

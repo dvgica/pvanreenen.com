@@ -1,0 +1,8 @@
+#main-nav a {
+  display: none;
+}
+
+#main-nav a:hover {
+  text-decoration:underline;
+  font-weight:bold;
+}
