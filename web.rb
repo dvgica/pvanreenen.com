@@ -1,5 +1,10 @@
 require 'sinatra'
 
+# to support legacy URLs
+get '/*.php' do
+  redirect request.fullpath.chomp('.php'), 301
+end
+
 get '/' do
   erb :index
 end
