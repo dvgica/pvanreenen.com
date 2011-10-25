@@ -1,8 +1,11 @@
 require 'sinatra'
 
+require_relative 'helpers'
+require_relative 'errors'
+
 # to support legacy URLs
 get '/*.php' do
-  redirect request.fullpath.chomp('.php'), 301
+  redirect request.path_info.chomp('.php'), 301
 end
 
 get '/' do
@@ -47,23 +50,4 @@ end
 
 get '/contact_web' do
   erb :contact_web
-end
-
-helpers do
-  def menu_item(text, href)
-    if request.path_info == href
-      "<li class=\"cur\">#{text}</li>"
-    else
-      "<li><a href=\"#{href}\">#{text}</a></li>"
-    end
-  end
-end
-
-# errors
-not_found do
-  erb :"404"
-end
-
-error do
-  erb :"500"
 end
