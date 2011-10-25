@@ -82,10 +82,20 @@ get '/thank_you/?' do
 end
 
 post '/contact' do
-  Pony.mail   :to => 'david.vangeest@gmail.com',
+  Pony.mail   :to => 'patricia@pvanreenen.com',
               :from => "pvanreenen.com <sinatra@pvanreenen.com>",
               :reply_to => params[:email],
               :subject => params[:subject],
-              :body => erb(:contact_email, :layout => false)
+              :body => erb(:email, :layout => false)
   redirect 'thank_you'
 end
+
+post '/contact_web' do
+  Pony.mail   :to => 'webmaster@pvanreenen.com',
+              :from => "pvanreenen.com <sinatra@pvanreenen.com>",
+              :reply_to => params[:email],
+              :subject => params[:subject],
+              :body => erb(:email, :layout => false)
+  redirect 'thank_you'
+end
+
