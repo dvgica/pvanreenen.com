@@ -75,11 +75,17 @@ get '/contact_web/?' do
   erb :contact_web
 end
 
+get '/thank_you/?' do
+  @page_name = 'Thank You'
+  @page_desc = "Your email has been sent."
+  erb :thank_you
+end
+
 post '/contact' do
   Pony.mail   :to => 'david.vangeest@gmail.com',
-              :from => "sinatra@pvanreenen.com",
+              :from => "pvanreenen.com <sinatra@pvanreenen.com>",
               :reply_to => params[:email],
               :subject => params[:subject],
-              :body => erb(:contact_email)
+              :body => erb(:contact_email, :layout => false)
   redirect 'thank_you'
 end
