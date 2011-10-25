@@ -1,9 +1,6 @@
 function initializeApp(pathInfo) {
   if (pathInfo == "/location") {
-    loadMap();
-    $(window).unload(function() {
-      GUnload();
-    });  
+    loadMap();  
   }
   
   $("a.new-window").unbind("click").click(function() {
@@ -16,19 +13,28 @@ function initializeApp(pathInfo) {
 }
 
 function loadMap() {
-  if (GBrowserIsCompatible()) {
-    var markerString = "Patricia Van Reenen<br>1096 The Parkway<br>London, Ontario N6A 2X1";
-    var myPoint = new GLatLng(43.004629, -81.267193);
-    var map = new GMap2(document.getElementById("map"));
-    map.setCenter(myPoint, 13);
-    map.addControl(new GSmallMapControl());
-    map.openInfoWindowHtml(myPoint, markerString );       
-
-    var marker = new GMarker(myPoint);
-    map.addOverlay(marker);         
-
-    GEvent.addListener(marker, "click", function() {
-      map.openInfoWindowHtml(myPoint, markerString);
-    });
-  }
+  var markerString = "Patricia Van Reenen<br>1096 The Parkway<br>London, Ontario N6A 2X1";
+  var latLng = new google.maps.LatLng(43.004629, -81.267193);
+  var options = {
+    zoom: 12,
+    center: new google.maps.LatLng(43.010629, -81.267193),
+    mapTypeId: google.maps.MapTypeId.ROADMAP
+  };
+  var map = new google.maps.Map(document.getElementById("map"), options);
+  
+  var marker = new google.maps.Marker({
+      position: latLng, 
+      map: map, 
+      title: markerString
+  });
+  
+  var infoWindow = new google.maps.InfoWindow({
+    content: markerString
+  });
+  
+  google.maps.event.addListener(marker, 'click', function() {
+    infoWindow.open(map, marker);
+  });
+  
+  infoWindow.open(map, marker);
 }
