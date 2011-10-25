@@ -1,14 +1,3 @@
-require 'sinatra'
-
-require_relative 'helpers'
-require_relative 'errors'
-require_relative 'config'
-
-# to support legacy URLs
-get '/*.php' do
-  redirect request.path_info.chomp('.php'), 301
-end
-
 get '/' do
   @page_name = 'Home'
   @page_desc = "Patricia Van Reenen is an individual, couple, and family counsellor based in London, Ontario."

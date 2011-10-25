@@ -1,5 +1,3 @@
-require 'pony'
-
 Pony.options = { 
   :via => :smtp,
   :via_options => {
@@ -12,10 +10,3 @@ Pony.options = {
     :enable_starttls_auto => true
   }
 }
-
-require 'erubis'
-set :erubis, :escape_html => true
-
-configure :production do
-  require 'newrelic_rpm'
-end
