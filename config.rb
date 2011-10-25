@@ -15,3 +15,7 @@ Pony.options = {
 
 require 'erubis'
 set :erubis, :escape_html => true
+
+configure :production do
+  require 'newrelic_rpm'
+end
