@@ -4,11 +4,11 @@
 <head>
   <meta http-equiv="Content-Type" content="text/html; charset=iso-8859-1" />
   <meta name="keywords" content="counseling, counselor, counselling, counsellor, therapist, therapy, Christian, individual, couple, family, london, ontario, Canada, Patricia Van Reenen, psychoanalysis, psychotherapy" />
-  <meta name="description" content="TODO" />
+  <meta name="description" content="<%= @page_desc %>" />
   <meta name="verify-v1" content="bOWyNCW8res8xpx05kVSzWbnsBJ0loXoEesjq3GLI9k=" />
   <meta name="google-site-verification" content="ii2Z3wsYu3Bvhhw3gyDUi2p1gIGByNz-urSRPg6zJb8" />
 
-  <title>TODO - Patricia Van Reenen, M.S.W., R.S.W.</title>
+  <title><%= @page_name %> - Patricia Van Reenen, M.S.W., R.S.W.</title>
 
   <link type="text/css" rel="stylesheet" href="/stylesheets/application.css" />
   <!--[if lte IE 7]>
@@ -38,7 +38,7 @@
               <%= menu_item('Home', '/') %>
               <%= menu_item('About', '/about') %>
               <%= menu_item('Services', '/services') %>
-              <%= menu_item('Fees & Hours', '/fees_hours') %>
+              <%= menu_item('Fees &amp; Hours', '/fees_hours') %>
               <%= menu_item('Location', '/location') %>
               <%= menu_item('Contact', '/contact') %>
               <%= menu_item('FAQ', '/faq') %>
