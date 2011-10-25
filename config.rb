@@ -1,6 +1,6 @@
 require 'pony'
 
-Pony.options = {
+Pony.options = { 
   :via => :smtp,
   :via_options => {
     :address => 'smtp.sendgrid.net',
