@@ -2,6 +2,7 @@
 <html xmlns="http://www.w3.org/1999/xhtml">
 
 <head>
+  <%= NewRelic::Agent.browser_timing_header rescue "" %>
   <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
   <meta name="keywords" content="counseling, counselor, counselling, counsellor, therapist, therapy, Christian, individual, couple, family, london, ontario, Canada, Patricia Van Reenen, psychoanalysis, psychotherapy" />
   <meta name="description" content="<%= @page_desc %>" />
@@ -78,5 +79,6 @@
         </div><!--footer-content-->
       </div><!--footer-back-->
     </div><!--containter-->
+    <%= NewRelic::Agent.browser_timing_footer rescue "" %>
   </body>
 </html>
