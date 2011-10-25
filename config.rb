@@ -12,3 +12,6 @@ Pony.options = {
     :enable_starttls_auto => true
   }
 }
+
+require 'erubis'
+set :erubis, :escape_html => true
