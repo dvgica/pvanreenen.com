@@ -2,6 +2,7 @@ require 'sinatra'
 
 require_relative 'helpers'
 require_relative 'errors'
+require_relative 'config'
 
 # to support legacy URLs
 get '/*.php' do
@@ -72,4 +73,13 @@ get '/contact_web/?' do
   @page_name = 'Contact the Webmaster'
   @page_desc = "Contact the webmaster regarding bugs or questions related to the site."
   erb :contact_web
+end
+
+post '/contact' do
+  Pony.mail   :to => 'david.vangeest@gmail.com',
+              :from => "sinatra@pvanreenen.com",
+              :reply_to => params[:email],
+              :subject => params[:subject],
+              :body => erb(:contact_email)
+  redirect 'thank_you'
 end
