@@ -10,6 +10,7 @@ end
 
 group :test do
   gem 'rack-test'
+  gem 'pony-test', :git => "git://github.com/patrickxb/pony-test.git"
 end
 
 group :production do

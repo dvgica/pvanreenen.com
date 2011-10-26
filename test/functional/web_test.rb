@@ -1,12 +1,8 @@
-ENV['RACK_ENV'] = 'test'
-
-require 'sinatra'
-require_relative '../../init'
-require 'test/unit'
-require 'rack/test'
+require_relative '../test_helper'
 
 class WebTest < Test::Unit::TestCase
   include Rack::Test::Methods
+  include Pony::TestHelpers
 
   def app
     Sinatra::Application
@@ -72,16 +68,24 @@ class WebTest < Test::Unit::TestCase
     assert last_response.ok?
   end
 
-  def test_it_gets_to_the_smtp_part_on_contact_post
-    assert_raise Net::SMTPFatalError do
-      post '/contact'
-    end
+  def test_it_sends_email_and_redirects_on_contact_post
+    post '/contact', { :email => 'example@example.com', :subject => 'stuff', :realname => 'John Smith', :question => 'Example' }
+    follow_redirect!
+    
+    assert_equal "http://example.org/thank_you", last_request.url
+    assert last_response.ok?
+    assert_equal ['patricia@pvanreenen.com'], last_email_sent.to
+    assert_equal 'stuff', last_email_sent.subject
   end
     
-  def test_it_gets_to_the_smtp_part_on_contact_web_post
-    assert_raise Net::SMTPFatalError do
-      post '/contact_web'
-    end
+  def test_it_sends_email_and_redirects_on_contact_web_post
+    post '/contact_web', { :email => 'example@example.com', :subject => 'website stuff', :realname => 'John Smith', :question => 'Example' }
+    follow_redirect!
+    
+    assert_equal "http://example.org/thank_you", last_request.url
+    assert last_response.ok?
+    assert_equal ['webmaster@pvanreenen.com'], last_email_sent.to
+    assert_equal 'website stuff', last_email_sent.subject
   end
 
 end
