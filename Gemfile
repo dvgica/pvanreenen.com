@@ -4,6 +4,11 @@ gem 'sinatra', '1.3.1'
 gem 'pony', '1.3'
 gem 'erubis', '2.7.0'
 
+group :development do
+  gem 'foreman', '0.60.2'
+  gem 'heroku'
+end
+
 group :development, :production do
   gem 'thin', '1.2.11'
 end
