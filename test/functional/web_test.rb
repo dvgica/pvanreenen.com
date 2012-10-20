@@ -7,7 +7,7 @@ class WebTest < Test::Unit::TestCase
   def app
     Sinatra::Application
   end
-  
+
   def test_it_serves_the_home_page
     get '/'
     assert last_response.ok?
@@ -22,7 +22,7 @@ class WebTest < Test::Unit::TestCase
     get '/services'
     assert last_response.ok?
   end
-  
+
   def test_it_serves_the_fees_hours_page
     get '/fees_hours'
     assert last_response.ok?
@@ -71,17 +71,28 @@ class WebTest < Test::Unit::TestCase
   def test_it_sends_email_and_redirects_on_contact_post
     post '/contact', { :email => 'example@example.com', :subject => 'stuff', :realname => 'John Smith', :question => 'Example' }
     follow_redirect!
-    
+
     assert_equal "http://example.org/thank_you", last_request.url
     assert last_response.ok?
     assert_equal ['patricia@pvanreenen.com'], last_email_sent.to
     assert_equal 'stuff', last_email_sent.subject
   end
-    
+
+  def test_it_sends_email_from_dest_address_when_no_email_given
+    post '/contact', { :subject => 'stuff2', :realname => 'John Smith', :question => 'Example' }
+    follow_redirect!
+
+    assert_equal "http://example.org/thank_you", last_request.url
+    assert last_response.ok?
+    assert_equal ['patricia@pvanreenen.com'], last_email_sent.to
+    assert_equal 'stuff2', last_email_sent.subject
+    assert_equal ['patricia@pvanreenen.com'], last_email_sent.from
+  end
+
   def test_it_sends_email_and_redirects_on_contact_web_post
     post '/contact_web', { :email => 'example@example.com', :subject => 'website stuff', :realname => 'John Smith', :question => 'Example' }
     follow_redirect!
-    
+
     assert_equal "http://example.org/thank_you", last_request.url
     assert last_response.ok?
     assert_equal ['webmaster@pvanreenen.com'], last_email_sent.to
