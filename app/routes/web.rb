@@ -81,7 +81,7 @@ end
 
 post '/contact_web' do
   Pony.mail   :to => 'webmaster@pvanreenen.com',
-              :from => "pvanreenen.com <sinatra@pvanreenen.com>",
+              :from => "pvanreenen.com <webmaster@pvanreenen.com>",
               :reply_to => params[:email],
               :subject => params[:subject],
               :body => erb(:email, :layout => false)
