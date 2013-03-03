@@ -86,7 +86,7 @@ class WebTest < Test::Unit::TestCase
     assert last_response.ok?
     assert_equal ['patricia@pvanreenen.com'], last_email_sent.to
     assert_equal 'stuff2', last_email_sent.subject
-    assert_equal ['patricia@pvanreenen.com'], last_email_sent.from
+    assert_equal ['sinatra@pvanreenen.com'], last_email_sent.from
   end
 
   def test_it_sends_email_and_redirects_on_contact_web_post
