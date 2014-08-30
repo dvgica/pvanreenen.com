@@ -1,4 +1,5 @@
-source :gemcutter
+source 'https://rubygems.org'
+ruby '2.1.2'
 
 gem 'sinatra', '1.3.1'
 gem 'pony', '1.3'
