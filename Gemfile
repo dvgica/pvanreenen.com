@@ -1,17 +1,17 @@
 source 'https://rubygems.org'
 ruby '2.1.2'
 
-gem 'sinatra', '1.3.1'
-gem 'pony', '1.3'
-gem 'erubis', '2.7.0'
+gem 'sinatra'
+gem 'pony'
+gem 'erubis'
 
 group :development do
-  gem 'foreman', '0.60.2'
+  gem 'foreman'
   gem 'heroku'
 end
 
 group :development, :production do
-  gem 'thin', '1.2.11'
+  gem 'thin'
 end
 
 group :test do
@@ -20,5 +20,5 @@ group :test do
 end
 
 group :production do
-  gem 'newrelic_rpm', '3.2.0'
+  gem 'newrelic_rpm'
 end
