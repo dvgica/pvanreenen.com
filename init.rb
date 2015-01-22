@@ -1,5 +1,6 @@
 # Bundler
 require "bundler"
+ENV['RACK_ENV'] ||= 'development'
 Bundler.require :default, ENV['RACK_ENV'].to_sym
 
 set :views, 'app/views/'
