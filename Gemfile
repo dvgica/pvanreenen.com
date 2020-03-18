@@ -1,14 +1,9 @@
 source 'https://rubygems.org'
-ruby '2.1.2'
+ruby '2.6.5'
 
 gem 'sinatra'
 gem 'pony'
 gem 'erubis'
-
-group :development do
-  gem 'foreman'
-  gem 'heroku'
-end
 
 group :development, :production do
   gem 'thin'
