@@ -8,3 +8,4 @@ It's not terribly interesting or fork-able, but I need a backup repo :-).
 TODO
 ----
 * clean up the the CSS, add some Sass!
+* upgrade all the things
