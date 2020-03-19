@@ -77,12 +77,16 @@ get '/contact_failure/?' do
 end
 
 post '/contact' do
-  Pony.mail   :to => 'patricia@pvanreenen.com',
-              :from => "pvanreenen.com <sinatra@pvanreenen.com>",
-              :reply_to => params[:email],
-              :subject => params[:subject],
-              :body => erb(:email, :layout => false)
-  redirect 'thank_you'
+  if recaptcha_ok
+    Pony.mail   :to => 'patricia@pvanreenen.com',
+                :from => "pvanreenen.com <sinatra@pvanreenen.com>",
+                :reply_to => params[:email],
+                :subject => params[:subject],
+                :body => erb(:email, :layout => false)
+    redirect 'thank_you'
+  else
+    redirect 'contact_failure'
+  end
 end
 
 post '/contact_web' do
