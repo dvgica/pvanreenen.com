@@ -12,6 +12,10 @@ function initializeApp(pathInfo) {
   });
 }
 
+function submitContactForm(token) {
+  document.getElementById("contact-form").submit();
+}
+
 function loadMap() {
   var markerString = "<div id=\"info-window\">Patricia Van Reenen<br>1096 The Parkway<br>London, Ontario<br>N6A 2X1</div>";
   var latLng = new google.maps.LatLng(43.004629, -81.267193);
