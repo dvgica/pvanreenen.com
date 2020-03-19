@@ -4,6 +4,7 @@ ruby '2.6.5'
 gem 'sinatra'
 gem 'pony'
 gem 'erubis'
+gem 'httparty'
 
 group :development, :production do
   gem 'thin'

@@ -70,6 +70,12 @@ get '/thank_you/?' do
   erb :thank_you
 end
 
+get '/contact_failure/?' do
+  @page_name = 'Contact Failure'
+  @page_desc = "Your email has not been sent."
+  erb :contact_failure
+end
+
 post '/contact' do
   Pony.mail   :to => 'patricia@pvanreenen.com',
               :from => "pvanreenen.com <sinatra@pvanreenen.com>",
@@ -80,11 +86,26 @@ post '/contact' do
 end
 
 post '/contact_web' do
-  Pony.mail   :to => 'webmaster@pvanreenen.com',
-              :from => "pvanreenen.com <sinatra@pvanreenen.com>",
-              :reply_to => params[:email],
-              :subject => params[:subject],
-              :body => erb(:email, :layout => false)
-  redirect 'thank_you'
+  recaptcha_response = params[:"g-recaptcha-response"]
+
+  options = {
+    body: {
+      secret: ENV['RECAPTCHA_SECRET_KEY'],
+      response: recaptcha_response
+    }
+  }
+
+  verification = HTTParty.post('https://www.google.com/recaptcha/api/siteverify', options)
+
+  if verification["success"]
+    Pony.mail   :to => 'webmaster@pvanreenen.com',
+                :from => "pvanreenen.com <sinatra@pvanreenen.com>",
+                :reply_to => params[:email],
+                :subject => params[:subject],
+                :body => erb(:email, :layout => false)
+    redirect 'thank_you'
+  else
+    redirect 'contact_failure'
+  end
 end
 
