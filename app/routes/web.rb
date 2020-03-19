@@ -86,6 +86,19 @@ post '/contact' do
 end
 
 post '/contact_web' do
+  if recaptcha_ok
+    Pony.mail   :to => 'webmaster@pvanreenen.com',
+                :from => "pvanreenen.com <sinatra@pvanreenen.com>",
+                :reply_to => params[:email],
+                :subject => params[:subject],
+                :body => erb(:email, :layout => false)
+    redirect 'thank_you'
+  else
+    redirect 'contact_failure'
+  end
+end
+
+def recaptcha_ok 
   recaptcha_response = params[:"g-recaptcha-response"]
 
   options = {
@@ -96,16 +109,6 @@ post '/contact_web' do
   }
 
   verification = HTTParty.post('https://www.google.com/recaptcha/api/siteverify', options)
-
-  if verification["success"]
-    Pony.mail   :to => 'webmaster@pvanreenen.com',
-                :from => "pvanreenen.com <sinatra@pvanreenen.com>",
-                :reply_to => params[:email],
-                :subject => params[:subject],
-                :body => erb(:email, :layout => false)
-    redirect 'thank_you'
-  else
-    redirect 'contact_failure'
-  end
+  !!verification["success"]
 end
 
