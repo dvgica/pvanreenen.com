@@ -8,7 +8,7 @@ You may also use the form below to contact me by email.  I respect your privacy
 and will not share your information with anyone.  If you would like a            
 response, be sure to enter your email address.
 </p>
-<form style="line-height:150%;" action="/contact" method="post">
+<form id="contact-form" style="line-height:150%;" action="/contact" method="post">
     <div id="form">
         Name <i>(optional)</i>:<br />
         <input size="50" type="text" name="realname" />
@@ -22,6 +22,6 @@ response, be sure to enter your email address.
         Question or Comment:<br />
         <textarea rows="8" cols="65" name="question"></textarea><br />
         <br />
-        <input type="submit" value="Submit" />
+        <button class="g-recaptcha" data-sitekey="<%= ENV['RECAPTCHA_SITE_KEY'] %>" data-callback='submitContactForm'>Submit</button>
     </div>
 </form> 
