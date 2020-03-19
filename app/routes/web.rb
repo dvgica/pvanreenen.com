@@ -77,7 +77,7 @@ get '/contact_failure/?' do
 end
 
 post '/contact' do
-  if recaptcha_ok
+  if ENV['RACK_ENV'] == 'test' || recaptcha_ok
     Pony.mail   :to => 'patricia@pvanreenen.com',
                 :from => "pvanreenen.com <sinatra@pvanreenen.com>",
                 :reply_to => params[:email],
@@ -90,7 +90,7 @@ post '/contact' do
 end
 
 post '/contact_web' do
-  if recaptcha_ok
+  if ENV['RACK_ENV'] == 'test' || recaptcha_ok
     Pony.mail   :to => 'webmaster@pvanreenen.com',
                 :from => "pvanreenen.com <sinatra@pvanreenen.com>",
                 :reply_to => params[:email],

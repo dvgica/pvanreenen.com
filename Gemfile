@@ -11,6 +11,7 @@ group :development, :production do
 end
 
 group :test do
+  gem 'test-unit'
   gem 'rack-test'
   gem 'pony-test', :git => "git://github.com/patrickxb/pony-test.git"
 end

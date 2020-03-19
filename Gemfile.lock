@@ -25,6 +25,7 @@ GEM
     newrelic_rpm (6.9.0.363)
     pony (1.13.1)
       mail (>= 2.0)
+    power_assert (1.1.6)
     rack (2.2.2)
     rack-protection (2.0.8.1)
       rack
@@ -36,6 +37,8 @@ GEM
       rack (~> 2.0)
       rack-protection (= 2.0.8.1)
       tilt (~> 2.0)
+    test-unit (3.3.5)
+      power_assert
     thin (1.7.2)
       daemons (~> 1.0, >= 1.0.9)
       eventmachine (~> 1.0, >= 1.0.4)
@@ -53,6 +56,7 @@ DEPENDENCIES
   pony-test!
   rack-test
   sinatra
+  test-unit
   thin
 
 RUBY VERSION
