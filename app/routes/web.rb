@@ -4,6 +4,12 @@ get '/' do
   erb :index
 end
 
+get '/covid-19/?' do
+  @page_name = 'Office Procedures During COVID-19'
+  @page_desc = "During the COVID-19 pandemic, I am offering remote therapy sessions via Zoom or telephone."
+  erb :"covid-19"
+end
+
 get '/about/?' do
   @page_name = 'About'
   @page_desc = "Educational qualifications, clinical counselling experience, and professional memberships."
@@ -102,7 +108,7 @@ post '/contact_web' do
   end
 end
 
-def recaptcha_ok 
+def recaptcha_ok
   recaptcha_response = params[:"g-recaptcha-response"]
 
   options = {
